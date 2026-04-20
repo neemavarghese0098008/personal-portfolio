@@ -46,9 +46,9 @@ function About() {
             viewport={{ once: false ,amount: 0.2}}
             className='md:w-1/2'>
                 <div className='rounded-2xl p-8'>
-                    <h3 className='text-2xl text-gray-100 font-semibold  mb-6'>My Journey</h3>
-                    <p className='text-white mb-6'>I’m a passionate full-stack developer who enjoys transforming ideas into scalable and meaningful web applications. With hands-on experience in React, node.js, Express.js, MongoDB, and PostgreSQL, I focus on building clean, efficient, and user-centric digital solutions that solve real-world problems.</p>
-                    <p className='text-white mb-12'>My journey into development started with curiosity for how things work behind the web, and has grown into creating full-fledged applications like a Program Management Portal. Alongside coding, my experience as a Computer Science educator has shaped my ability to think clearly, communicate effectively, and approach challenges with a problem-solving mindset. I’m constantly exploring new technologies, refining my skills, and pushing myself to build better, smarter solutions every day.</p>
+                    <h3 className='text-3xl text-gray-100 font-semibold  mb-6'>My Journey</h3>
+                    <p className='text-white mb-6'>I’m a full-stack developer passionate about building scalable and user-focused web applications. I have hands-on experience with React, Node.js, Express.js, MongoDB, and PostgreSQL, and enjoy creating efficient solutions to real-world problems.</p>
+                    <p className='text-white mb-12'>I’ve developed projects like a Program Management Portal and bring strong problem-solving and communication skills from my experience as a Computer Science educator. I’m always learning, exploring new technologies, and striving to build better solutions.</p>
                 
                 {/* cards */}
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
@@ -66,6 +66,8 @@ function About() {
                     }
 
                 </div>
+
+                
 
                 </div>
             
