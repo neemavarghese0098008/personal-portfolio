@@ -4,9 +4,10 @@ import profileImg from '../assets/profile.avif';
 import projectImg1 from "../assets/project1.png";  
 import projectImg2 from '../assets/project2.png';
 import projectImg3 from '../assets/project3.png';
-import projectImg4 from '../assets/project4.avif';
+import projectImg4 from '../assets/project4.png';
 import projectImg5 from '../assets/project5.avif';
 import projectImg6 from '../assets/project6.avif';
+
 
 
 export const assets = {
@@ -81,6 +82,14 @@ export const skills = [
 
 
 export const projects = [
+  {
+  title: "Recruitment Management System",
+  description: "Developed a full-stack recruitment platform with role-based modules (Admin, HR, Candidate), featuring job application management, interview scheduling, and candidate tracking.",
+  image: projectImg4,   // add your image
+  tech: ["React.js", "Node.js", "Express.js", "MongoDB"],
+  demo: "https://recruitment-frondend.vercel.app",
+  code: "https://github.com/neemavarghese0098008/recruitment-frondend",
+},
   {
     title: "Contact Management Website",
     description: " Built a contact management application with add, edit, delete, and search features implemented dynamic routing and state management, Designed responsive Ul using Material UI",
