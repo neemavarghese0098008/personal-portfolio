@@ -5,8 +5,9 @@ import projectImg1 from "../assets/project1.png";
 import projectImg2 from '../assets/project2.png';
 import projectImg3 from '../assets/project3.png';
 import projectImg4 from '../assets/project4.png';
-import projectImg5 from '../assets/project5.avif';
+import projectImg5 from "../assets/project5.png";
 import projectImg6 from '../assets/project6.avif';
+
 
 
 
@@ -49,7 +50,7 @@ export const skills = [
     title: 'Frameworks & Libraries:',
     icon: FaServer,
     description: 'Building dynamic and scalable applications using modern frameworks and libraries.',
-    tags: ['Node.js', 'Express', 'React.js']
+    tags: ['Node.js', 'Express', 'React.js','Next.js','Angular']
   },
   {
     title: 'Database Management',
@@ -82,6 +83,14 @@ export const skills = [
 
 
 export const projects = [
+  {
+  title: "AI Prompt Marketplace",
+  description: "Full-stack AI prompt sharing platform where users can create, explore, save, and manage AI prompts with authentication and modern UI.",
+  image: projectImg5,   // add your image
+  tech: ["Next.js", "MongoDB", "Tailwind CSS"],
+  demo: "https://ai-prompt-marketplace-iota.vercel.app",
+  code: "https://github.com/neemavarghese0098008/ai-prompt-marketplace",
+},
   {
   title: "Recruitment Management System",
   description: "Developed a full-stack recruitment platform with role-based modules (Admin, HR, Candidate), featuring job application management, interview scheduling, and candidate tracking.",
