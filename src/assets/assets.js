@@ -6,7 +6,7 @@ import projectImg2 from '../assets/project2.png';
 import projectImg3 from '../assets/project3.png';
 import projectImg4 from '../assets/project4.png';
 import projectImg5 from "../assets/project5.png";
-import projectImg6 from '../assets/project6.avif';
+import projectImg6 from "../assets/project6.png";
 
 
 
@@ -83,6 +83,14 @@ export const skills = [
 
 
 export const projects = [
+   {
+  title: "ALVA Event Hall Booking System",
+  description: "Full-stack event hall booking platform built with React.js, Node.js, Express.js, and MySQL, featuring RESTful APIs, JWT authentication, role-based authorization, CRUD operations, booking management, and an admin dashboard.",
+  image: projectImg6,   // add your image
+  tech: ["React.js", "Node.js", "Express.js","MySQL","REST APIs","JWT","CRUD"],
+  demo: "https://alvaconventioncenter.com/",
+  code: "https://github.com/neemavarghese0098008/alva-event-hall-booking",
+},
   {
   title: "AI Prompt Marketplace",
   description: "Full-stack AI prompt sharing platform where users can create, explore, save, and manage AI prompts with authentication and modern UI.",
@@ -158,9 +166,17 @@ export const projects = [
 
 export const workData = [
   {
-    role: "TRAINING (ONGOING), MERN Stack Development Training",
+    role: "Full Stack Developer",
+    company: "Affinity Interactive",
+    duration: "08/2026 - Present",
+    description:
+      "Developing full-stack web applications using React.js, Node.js, Express.js, and MySQL, with hands-on experience in RESTful API development, frontend-backend integration, CRUD operations, authentication, database management, and responsive UI development. Implementing reusable components, debugging application issues, optimizing performance, and contributing to scalable, maintainable solutions.",
+    color: "purple"
+  },
+  {
+    role: " MERN Stack Development intern",
     company: "Luminar Technolab, Kakkanad",
-    duration: "02/2026 - Present",
+    duration: "02/2026 - 06/2026",
     description:
       "I build full-stack applications using the MERN stack and Angular, integrating RESTful APIs to deliver seamless and scalable user experiences. My work focuses on developing efficient frontend components and robust backend services, with strong attention to debugging, validation, and performance optimization.",
     color: "purple"

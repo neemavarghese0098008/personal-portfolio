@@ -1,0 +1,120 @@
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
+import { projects } from '../assets/assets'
+import ProjectCard from '../components/ProjectCard'
+import Footer from '../components/Footer'
+import { FaArrowLeft, FaSearch } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+
+function ProjectsPage() {
+  const [searchTerm, setSearchTerm] = useState('')
+  const [selectedTech, setSelectedTech] = useState('All')
+
+  // Collect unique technologies for filter tabs
+  const allTechs = ['All', 'React.js', 'Node.js', 'Next.js', 'MySQL', 'MongoDB', 'JavaScript']
+
+  // Filter projects dynamically based on search & category
+  const filteredProjects = projects.filter((project) => {
+    const matchesSearch = 
+      project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      project.tech.some(t => t.toLowerCase().includes(searchTerm.toLowerCase()))
+
+    const matchesTech = 
+      selectedTech === 'All' || 
+      project.tech.some(t => t.toLowerCase() === selectedTech.toLowerCase())
+
+    return matchesSearch && matchesTech
+  })
+
+  return (
+    <div className='min-h-screen bg-[#121212] text-white flex flex-col justify-between pt-28'>
+      {/* Header Banner */}
+      <div className='container mx-auto px-6 md:px-12 max-w-7xl relative z-10 py-8'>
+        {/* Back Link */}
+        <div className='mb-8'>
+          <Link 
+            to='/' 
+            className='inline-flex items-center gap-2.5 text-purple-400 hover:text-pink-400 text-lg font-semibold transition duration-300 group'
+          >
+            <FaArrowLeft className='group-hover:-translate-x-1 transition-transform duration-300' />
+            <span>Back to Home</span>
+          </Link>
+        </div>
+
+        {/* Title */}
+        <div className='text-center max-w-3xl mx-auto mb-12'>
+          <h1 className='text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-4'>
+            All <span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500'>Projects</span>
+          </h1>
+          <p className='text-gray-300 text-xl md:text-2xl font-normal leading-relaxed'>
+            A comprehensive catalog of my full-stack web applications, software engineering projects, and interactive demos.
+          </p>
+        </div>
+
+        {/* Filter & Search Bar Controls */}
+        <div className='glass-card rounded-3xl p-6 md:p-8 mb-16 border border-purple-500/20 shadow-xl max-w-5xl mx-auto flex flex-col md:flex-row gap-6 items-center justify-between'>
+          {/* Search Box */}
+          <div className='relative w-full md:w-80'>
+            <FaSearch className='absolute left-4 top-1/2 -translate-y-1/2 text-purple-400 text-lg' />
+            <input 
+              type="text"
+              placeholder="Search projects or tech..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className='w-full bg-[#1a1a24] border border-purple-500/30 focus:border-pink-500 focus:outline-none text-white pl-12 pr-4 py-3 rounded-2xl text-base transition duration-300'
+            />
+          </div>
+
+          {/* Tech Badges Tabs */}
+          <div className='flex flex-wrap gap-2.5 justify-center md:justify-end w-full md:w-auto'>
+            {allTechs.map((tech) => (
+              <button
+                key={tech}
+                onClick={() => setSelectedTech(tech)}
+                className={`px-4 py-2 rounded-xl text-sm md:text-base font-semibold transition-all duration-300 cursor-pointer ${
+                  selectedTech === tech
+                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md shadow-purple-600/30'
+                    : 'bg-purple-500/10 border border-purple-500/20 text-gray-300 hover:bg-purple-500/20 hover:text-white'
+                }`}
+              >
+                {tech}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Projects Grid */}
+        {filteredProjects.length > 0 ? (
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 mb-20'>
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+              >
+                <ProjectCard {...project} />
+              </motion.div>
+            ))}
+          </div>
+        ) : (
+          <div className='text-center py-20 glass-card rounded-3xl p-12 max-w-xl mx-auto border border-purple-500/20 mb-20'>
+            <p className='text-2xl font-semibold text-gray-300 mb-4'>No projects found</p>
+            <p className='text-gray-400 text-lg mb-6'>Try searching for a different keyword or resetting your filters.</p>
+            <button 
+              onClick={() => { setSearchTerm(''); setSelectedTech('All'); }}
+              className='px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold transition duration-300'
+            >
+              Reset Filters
+            </button>
+          </div>
+        )}
+      </div>
+
+      <Footer />
+    </div>
+  )
+}
+
+export default ProjectsPage

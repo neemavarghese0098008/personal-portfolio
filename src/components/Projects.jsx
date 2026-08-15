@@ -3,44 +3,61 @@ import React from 'react'
 import ProjectCard from './ProjectCard'
 import { projects } from '../assets/assets'
 import { FaArrowRight } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 function Projects() {
+  // Display only top 4 featured projects on homepage
+  const featuredProjects = projects.slice(0, 4);
+
   return (
     <motion.div
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1, ease: 'easeOut' }}
-    viewport={{ once: true , amount:0.2}}
-    id='projects'
-    className='py-20 bg-dark-100'
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+      viewport={{ once: true, amount: 0.1 }}
+      id='projects'
+      className='py-28 md:py-32 bg-[#121212] relative'
     >
-        <div className='container mx-auto px-6'>
-            <h2 className='text-3xl text-white font-bold text-center mb-4'>
-                My
-                 <span className='text-purple'>Projects </span>
-            </h2>
-            <p className='text-gray-400 text-center max-w-2xl mx-auto mb-16'>A selection of my recent work </p>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto'>
-                {/* project card */}
-                {
-                    projects.map((project,index)=>(
-                        <ProjectCard key={index} {...project}/>  
-                    ))
-                }
-
-            </div>
-            <div  className='text-center mt-12'>
-        <a href='#' className='inline-flex items-center px-6 py-3 border border-purple-900 rounded-lg font-medium hover:bg-purple-500 transition duration-300'>
-            <span className='text-semibold text-white'>View More Projects</span>
-            <FaArrowRight className=' text-semibold text-white ml-2'/>
-        </a>
-
-     </div>
-
+      <div className='container mx-auto px-6 md:px-12 max-w-7xl relative z-10'>
+        {/* Section Title */}
+        <div className='text-center mb-16 md:mb-20'>
+          <h2 className='text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-4'>
+            Featured <span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500'>Projects</span>
+          </h2>
+          <p className='text-gray-400 text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto font-normal'>
+            A showcase of my recent full-stack applications and engineering work
+          </p>
         </div>
-      
+
+        {/* 2x2 Responsive Grid for Featured Projects */}
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 max-w-7xl mx-auto mb-16'>
+          {featuredProjects.map((project, index) => (
+            <motion.div 
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <ProjectCard {...project} />  
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Prominent View More Projects CTA Button */}
+        <div className='text-center mt-12'>
+          <Link 
+            to='/projects' 
+            className='inline-flex items-center gap-3 px-10 py-5 rounded-2xl font-bold text-lg md:text-xl text-white bg-gradient-to-r from-purple-600 via-purple-700 to-pink-600 hover:from-purple-500 hover:to-pink-500 shadow-[0_0_30px_rgba(106,13,173,0.4)] hover:shadow-[0_0_40px_rgba(255,105,180,0.5)] hover:scale-105 active:scale-95 transition-all duration-300 group border border-purple-400/30'
+          >
+            <span>View More Projects</span>
+            <FaArrowRight className='text-lg group-hover:translate-x-1.5 transition-transform duration-300' />
+          </Link>
+        </div>
+      </div>
     </motion.div>
   )
 }
 
 export default Projects
+

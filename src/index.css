@@ -1,37 +1,105 @@
 @import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
-*{
-    font-family: Saira,sans-serif;
+html {
+    scroll-behavior: smooth;
+    font-size: 17px;
 }
-@theme{
-    --color-dark-100: #1a1a1a;
-    --color-dark-200: #333333;
-    --color-dark-300: #4d4d4d;
-    --color-dark-400: #666666;
-    --color-purple:#6a0dad;
-    --color-pink:#ff69b4;
-    --color-blue:#1e90ff;
+
+@media (min-width: 768px) {
+    html {
+        font-size: 18px;
+    }
 }
-.typewriter{
-    overflow: hidden; /* Ensures the content is not revealed until the animation */
-    border-right: .15em solid orange; /* The typewriter cursor */
-    white-space: nowrap; /* Keeps the content on a single line */
-    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-    letter-spacing: .15em; /* Adjust as needed */
+
+* {
+    font-family: Saira, sans-serif;
+}
+
+@theme {
+    --color-dark-100: #121212;
+    --color-dark-150: #1a1a1a;
+    --color-dark-200: #262626;
+    --color-dark-300: #333333;
+    --color-dark-400: #4d4d4d;
+    --color-purple: #6a0dad;
+    --color-purple-light: #9d4edd;
+    --color-pink: #ff69b4;
+    --color-blue: #1e90ff;
+}
+
+/* Glassmorphic card styling */
+.glass-card {
+    background: rgba(40, 40, 48, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(157, 78, 221, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-card:hover {
+    border-color: rgba(255, 105, 180, 0.4);
+    box-shadow: 0 10px 35px 0 rgba(106, 13, 173, 0.25);
+}
+
+/* Glowing text and borders */
+.glow-purple {
+    box-shadow: 0 0 25px rgba(106, 13, 173, 0.4);
+}
+
+.glow-pink {
+    box-shadow: 0 0 25px rgba(255, 105, 180, 0.4);
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #c084fc 0%, #f472b6 50%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Custom Floating & Pulse Keyframes */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+.animate-float-slow {
+    animation: float 6s ease-in-out infinite;
+}
+
+.typewriter {
+    overflow: hidden;
+    border-right: .15em solid #ff69b4;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .08em;
     animation: 
       typing 3.5s steps(40, end) forwards,
       blink-caret .75s step-end infinite;
-  }
-  
-  /* The typing effect */
-  @keyframes typing {
+}
+
+@keyframes typing {
     from { width: 0 }
     to { width: 100% }
-  }
-  
-  /* The typewriter cursor effect */
-  @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: rgb(204, 0, 255); }
 }
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: rgb(255, 105, 180); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #121212;
+}
+::-webkit-scrollbar-thumb {
+    background: #333333;
+    border-radius: 5px;
+    border: 2px solid #121212;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #6a0dad;
+}

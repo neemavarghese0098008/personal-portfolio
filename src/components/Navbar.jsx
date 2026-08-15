@@ -1,118 +1,101 @@
-import React from 'react'
-import { nav } from 'framer-motion/client'
+import React, { useState, useEffect } from 'react'
 import { FaBars } from 'react-icons/fa'
 import { FaXmark } from 'react-icons/fa6'
-import { useState } from 'react'
-
-
+import { useLocation, Link } from 'react-router-dom'
 
 function Navbar() {
+  const [showMenu, setShowMenu] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
-const[showMenu, setShowMenu] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 30) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  return(
-  <nav className='fixed w-full z-50 bg-dark-100/90 backdrop-blur-sm py-4 px-8 shadow-lg'>
-        <div className='container mx-auto flex justify-between items-center'>
-            <div>
-                <a href='#' className='flex flex-col leading-tight'>
-                    
-                    {/* Name */}
-                    <span className='text-3xl font-bold text-white'>
-                        Neema<span className='text-purple-500'>Varghese</span>
-                    </span>
-                    <div className='w-4 h-4 bg-purple rounded-full'></div>
-                </a>
-            </div>
-            <div className='hidden md:flex space-x-10'>
-                
-                <a href= "#home" className='relative text-white/80 transition duration-300 hover:text-purple group'>
-                    <span>Home</span>
-                    <span className='absolute left-0 -bottom-1 w-0 h-0.5 bg-purple transition-all duration-300 group-hover:w-full '>
-                    </span>  
-                </a>
-                <a href= "#about" className='relative text-white/80 transition duration-300 hover:text-purple group'>
-                    <span>About</span>
-                    <span className='absolute left-0 -bottom-1 w-0 h-0.5 bg-purple transition-all duration-300 group-hover:w-full '>
-                    </span>  
-                </a>
-                <a href= "#skills" className='relative text-white/80 transition duration-300 hover:text-purple group'>
-                    <span>Skills</span>
-                    <span className='absolute left-0 -bottom-1 w-0 h-0.5 bg-purple transition-all duration-300 group-hover:w-full '>
-                    </span>  
-                </a>
-                <a href= "#projects" className='relative text-white/80 transition duration-300 hover:text-purple group'>
-                    <span>Projects</span>
-                    <span className='absolute left-0 -bottom-1 w-0 h-0.5 bg-purple transition-all duration-300 group-hover:w-full '>
-                    </span>  
-                </a>
-                <a href= "#experience" className='relative text-white/80 transition duration-300 hover:text-purple group'>
-                    <span>Experience</span>
-                    <span className='absolute left-0 -bottom-1 w-0 h-0.5 bg-purple transition-all duration-300 group-hover:w-full '>
-                    </span>  
-                </a>
-                <a href= "#education" className='relative text-white/80 transition duration-300 hover:text-purple group'>
-                    <span>Education</span>
-                    <span className='absolute left-0 -bottom-1 w-0 h-0.5 bg-purple transition-all duration-300 group-hover:w-full '>
-                    </span>  
-                </a>
-                <a href= "#contact" className='relative text-white/80 transition duration-300 hover:text-purple group'>
-                    <span>Contact</span>
-                    <span className='absolute left-0 -bottom-1 w-0 h-0.5 bg-purple transition-all duration-300 group-hover:w-full '>
-                    </span>  
-                </a>
-        
+  const isHomePage = location.pathname === '/';
 
-            </div>
-            {/* Mobile menu button */}
-             <div className='md:hidden'>
-                {
-                    showMenu ? <FaXmark onClick={() => setShowMenu(!showMenu)} className='text-2xl cursor-pointer' />
-                     : 
-                    <FaBars onClick={() => setShowMenu(!showMenu)} className='text-2xl cursor-pointer'/>
-                }
-                
-                
+  const getNavHref = (sectionId) => {
+    return isHomePage ? `#${sectionId}` : `/#${sectionId}`;
+  };
 
-            </div>
-             </div>
-                {/* Mobile menu */}
-                {
-                    showMenu && (
-                        <div className='md:hidden mt-4 bg-dark-300 h-screen rounded-lg p-4 flex flex-col space-y-4 text-center justify-center'>
-                    <a onClick={() => setShowMenu(!showMenu)} href= "#home" className='relative text-white/80 transition duration-300 hover:text-purple group'>
-                    <span>Home</span>
-                    
-                </a>
-                <a onClick={() => setShowMenu(!showMenu)} href= "#about" className='relative text-white/80 transition duration-300 hover:text-purple group'>
-                    <span>About</span>
-                      
-                </a>
-                <a onClick={() => setShowMenu(!showMenu)} href= "#skills" className='relative text-white/80 transition duration-300 hover:text-purple group'>
-                    <span>Skills</span>
-                      
-                </a>
-                <a onClick={() => setShowMenu(!showMenu)} href= "#projects" className='relative text-white/80 transition duration-300 hover:text-purple group'>
-                    <span>Projects</span>
-                
-                </a>
-                <a onClick={() => setShowMenu(!showMenu)} href= "#experience" className='relative text-white/80 transition duration-300 hover:text-purple group'>
-                    <span>Experience</span>
-                     
-                </a>
-                <a onClick={() => setShowMenu(!showMenu)} href= "#education" className='relative text-white/80 transition duration-300 hover:text-purple group'>
-                    <span>Education</span>
-                     
-                </a>
-                <a onClick={() => setShowMenu(!showMenu)} href= "#contact" className='relative text-white/80 transition duration-300 hover:text-purple group'>
-                    <span>Contact</span>
-                  
-                </a>  
-            </div>
-                    )
-                }
+  const navLinks = [
+    { name: 'Home', href: getNavHref('home') },
+    { name: 'About', href: getNavHref('about') },
+    { name: 'Skills', href: getNavHref('skills') },
+    { name: 'Projects', href: isHomePage ? '#projects' : '/projects' },
+    { name: 'Experience', href: getNavHref('experience') },
+    { name: 'Education', href: getNavHref('education') },
+    { name: 'Contact', href: getNavHref('contact') },
+  ];
 
+  return (
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${
+      scrolled 
+        ? 'bg-[#121212]/95 backdrop-blur-md py-4 px-6 md:px-12 border-b border-purple-500/30 shadow-[0_4px_25px_rgba(106,13,173,0.15)]' 
+        : 'bg-[#121212]/80 backdrop-blur-sm py-5 px-6 md:px-12'
+    }`}>
+      <div className='container mx-auto flex justify-between items-center max-w-7xl'>
+        <div>
+          <Link to='/' className='flex items-center gap-2 group'>
+            <span className='text-3xl md:text-4xl font-extrabold text-white tracking-tight group-hover:text-purple-300 transition duration-300'>
+              Neema<span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500'>Varghese</span>
+            </span>
+            <div className='w-3.5 h-3.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse'></div>
+          </Link>
+        </div>
+
+        {/* Desktop Menu */}
+        <div className='hidden lg:flex items-center space-x-8 xl:space-x-10'>
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className='relative text-base xl:text-lg font-medium text-gray-200 transition-all duration-300 hover:text-purple-400 group py-1'
+            >
+              <span>{link.name}</span>
+              <span className='absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-300 group-hover:w-full rounded-full shadow-[0_0_8px_#ff69b4]'></span>
+            </a>
+          ))}
+        </div>
+
+        {/* Mobile menu button */}
+        <div className='lg:hidden flex items-center'>
+          <button 
+            onClick={() => setShowMenu(!showMenu)} 
+            className='p-2 text-white hover:text-purple-400 focus:outline-none transition duration-300'
+            aria-label="Toggle menu"
+          >
+            {showMenu ? <FaXmark className='text-3xl' /> : <FaBars className='text-3xl' />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile menu dropdown */}
+      {showMenu && (
+        <div className='lg:hidden mt-4 bg-[#1a1a1a]/95 backdrop-blur-xl border border-purple-500/20 rounded-2xl p-6 flex flex-col space-y-5 text-center shadow-2xl animate-in fade-in slide-in-from-top-4 duration-300'>
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              onClick={() => setShowMenu(false)}
+              href={link.href}
+              className='text-xl font-medium text-gray-200 hover:text-purple-400 py-2 border-b border-gray-800/50 transition duration-300'
+            >
+              {link.name}
+            </a>
+          ))}
+        </div>
+      )}
     </nav>
   )
 }
 
 export default Navbar
+
