@@ -10,15 +10,15 @@ const Work = () => {
       transition={{ duration: 0.8, ease: 'easeOut' }}
       viewport={{ once: true, amount: 0.1 }}
       id='experience'
-      className='py-28 md:py-32 bg-[#15151c] relative'
+      className='py-20 md:py-24 bg-[#15151c] relative'
     >
       <div className='container mx-auto px-6 md:px-12 max-w-5xl relative z-10'>
         {/* Section Title */}
-        <div className='text-center mb-16 md:mb-20'>
-          <h2 className='text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-4'>
+        <div className='text-center mb-12 md:mb-16'>
+          <h2 className='text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4'>
             Work <span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500'>Experience</span>
           </h2>
-          <p className='text-gray-400 text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto font-normal'>
+          <p className='text-gray-400 text-base sm:text-lg md:text-xl max-w-3xl mx-auto font-normal'>
             My professional career journey, roles, and key engineering achievements
           </p>
         </div>

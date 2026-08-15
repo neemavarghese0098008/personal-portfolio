@@ -39,26 +39,26 @@ function Navbar() {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
       scrolled 
-        ? 'bg-[#121212]/95 backdrop-blur-md py-4 px-6 md:px-12 border-b border-purple-500/30 shadow-[0_4px_25px_rgba(106,13,173,0.15)]' 
-        : 'bg-[#121212]/80 backdrop-blur-sm py-5 px-6 md:px-12'
+        ? 'bg-[#121212]/95 backdrop-blur-md py-3 px-6 md:px-12 border-b border-purple-500/30 shadow-[0_4px_25px_rgba(106,13,173,0.15)]' 
+        : 'bg-[#121212]/80 backdrop-blur-sm py-4 px-6 md:px-12'
     }`}>
       <div className='container mx-auto flex justify-between items-center max-w-7xl'>
         <div>
           <Link to='/' className='flex items-center gap-2 group'>
-            <span className='text-3xl md:text-4xl font-extrabold text-white tracking-tight group-hover:text-purple-300 transition duration-300'>
+            <span className='text-2xl md:text-3xl font-extrabold text-white tracking-tight group-hover:text-purple-300 transition duration-300'>
               Neema<span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500'>Varghese</span>
             </span>
-            <div className='w-3.5 h-3.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse'></div>
+            <div className='w-3 h-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse'></div>
           </Link>
         </div>
 
         {/* Desktop Menu */}
-        <div className='hidden lg:flex items-center space-x-8 xl:space-x-10'>
+        <div className='hidden lg:flex items-center space-x-6 xl:space-x-8'>
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className='relative text-base xl:text-lg font-medium text-gray-200 transition-all duration-300 hover:text-purple-400 group py-1'
+              className='relative text-sm xl:text-base font-medium text-gray-200 transition-all duration-300 hover:text-purple-400 group py-1'
             >
               <span>{link.name}</span>
               <span className='absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-300 group-hover:w-full rounded-full shadow-[0_0_8px_#ff69b4]'></span>

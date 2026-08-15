@@ -28,14 +28,14 @@ function ProjectsPage() {
   })
 
   return (
-    <div className='min-h-screen bg-[#121212] text-white flex flex-col justify-between pt-28'>
+    <div className='min-h-screen bg-[#121212] text-white flex flex-col justify-between pt-24'>
       {/* Header Banner */}
-      <div className='container mx-auto px-6 md:px-12 max-w-7xl relative z-10 py-8'>
+      <div className='container mx-auto px-6 md:px-12 max-w-7xl relative z-10 py-6'>
         {/* Back Link */}
-        <div className='mb-8'>
+        <div className='mb-6'>
           <Link 
             to='/' 
-            className='inline-flex items-center gap-2.5 text-purple-400 hover:text-pink-400 text-lg font-semibold transition duration-300 group'
+            className='inline-flex items-center gap-2.5 text-purple-400 hover:text-pink-400 text-base md:text-lg font-semibold transition duration-300 group'
           >
             <FaArrowLeft className='group-hover:-translate-x-1 transition-transform duration-300' />
             <span>Back to Home</span>
@@ -43,11 +43,11 @@ function ProjectsPage() {
         </div>
 
         {/* Title */}
-        <div className='text-center max-w-3xl mx-auto mb-12'>
-          <h1 className='text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-4'>
+        <div className='text-center max-w-3xl mx-auto mb-10'>
+          <h1 className='text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4'>
             All <span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500'>Projects</span>
           </h1>
-          <p className='text-gray-300 text-xl md:text-2xl font-normal leading-relaxed'>
+          <p className='text-gray-300 text-base sm:text-lg md:text-xl font-normal leading-relaxed'>
             A comprehensive catalog of my full-stack web applications, software engineering projects, and interactive demos.
           </p>
         </div>
