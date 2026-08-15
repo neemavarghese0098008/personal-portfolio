@@ -30,49 +30,49 @@ function ProjectsPage() {
   return (
     <div className='min-h-screen bg-[#121212] text-white flex flex-col justify-between pt-24'>
       {/* Header Banner */}
-      <div className='container mx-auto px-6 md:px-12 max-w-7xl relative z-10 py-6'>
+      <div className='container mx-auto px-6 md:px-12 max-w-6xl relative z-10 py-6'>
         {/* Back Link */}
         <div className='mb-6'>
           <Link 
             to='/' 
-            className='inline-flex items-center gap-2.5 text-purple-400 hover:text-pink-400 text-base md:text-lg font-semibold transition duration-300 group'
+            className='inline-flex items-center gap-2 text-purple-400 hover:text-pink-400 text-sm md:text-base font-semibold transition duration-300 group'
           >
-            <FaArrowLeft className='group-hover:-translate-x-1 transition-transform duration-300' />
+            <FaArrowLeft className='text-xs group-hover:-translate-x-1 transition-transform duration-300' />
             <span>Back to Home</span>
           </Link>
         </div>
 
         {/* Title */}
-        <div className='text-center max-w-3xl mx-auto mb-10'>
-          <h1 className='text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4'>
+        <div className='text-center max-w-2xl mx-auto mb-8'>
+          <h1 className='text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight mb-3'>
             All <span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500'>Projects</span>
           </h1>
-          <p className='text-gray-300 text-base sm:text-lg md:text-xl font-normal leading-relaxed'>
+          <p className='text-gray-300 text-xs sm:text-sm md:text-base font-normal leading-relaxed'>
             A comprehensive catalog of my full-stack web applications, software engineering projects, and interactive demos.
           </p>
         </div>
 
         {/* Filter & Search Bar Controls */}
-        <div className='glass-card rounded-3xl p-6 md:p-8 mb-16 border border-purple-500/20 shadow-xl max-w-5xl mx-auto flex flex-col md:flex-row gap-6 items-center justify-between'>
+        <div className='glass-card rounded-3xl p-5 md:p-6 mb-12 border border-purple-500/20 shadow-xl max-w-5xl mx-auto flex flex-col md:flex-row gap-4 items-center justify-between'>
           {/* Search Box */}
-          <div className='relative w-full md:w-80'>
-            <FaSearch className='absolute left-4 top-1/2 -translate-y-1/2 text-purple-400 text-lg' />
+          <div className='relative w-full md:w-72'>
+            <FaSearch className='absolute left-3.5 top-1/2 -translate-y-1/2 text-purple-400 text-sm' />
             <input 
               type="text"
               placeholder="Search projects or tech..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className='w-full bg-[#1a1a24] border border-purple-500/30 focus:border-pink-500 focus:outline-none text-white pl-12 pr-4 py-3 rounded-2xl text-base transition duration-300'
+              className='w-full bg-[#1a1a24] border border-purple-500/30 focus:border-pink-500 focus:outline-none text-white pl-10 pr-4 py-2.5 rounded-xl text-xs md:text-sm transition duration-300'
             />
           </div>
 
           {/* Tech Badges Tabs */}
-          <div className='flex flex-wrap gap-2.5 justify-center md:justify-end w-full md:w-auto'>
+          <div className='flex flex-wrap gap-2 justify-center md:justify-end w-full md:w-auto'>
             {allTechs.map((tech) => (
               <button
                 key={tech}
                 onClick={() => setSelectedTech(tech)}
-                className={`px-4 py-2 rounded-xl text-sm md:text-base font-semibold transition-all duration-300 cursor-pointer ${
+                className={`px-3 py-1.5 rounded-xl text-xs md:text-sm font-semibold transition-all duration-300 cursor-pointer ${
                   selectedTech === tech
                     ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md shadow-purple-600/30'
                     : 'bg-purple-500/10 border border-purple-500/20 text-gray-300 hover:bg-purple-500/20 hover:text-white'
@@ -86,7 +86,7 @@ function ProjectsPage() {
 
         {/* Projects Grid */}
         {filteredProjects.length > 0 ? (
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 mb-20'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16'>
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={index}

@@ -31,71 +31,71 @@ const Content = () => {
       transition={{ duration: 0.8, ease: 'easeOut' }}
       viewport={{ once: true, amount: 0.1 }}
       id='contact'
-      className='py-20 md:py-24 bg-[#15151c] relative'
+      className='py-16 md:py-20 bg-[#15151c] relative'
     >
-      <div className='container mx-auto px-6 md:px-12 max-w-7xl relative z-10'>
+      <div className='container mx-auto px-6 md:px-12 max-w-6xl relative z-10'>
         {/* Section Heading */}
-        <div className='text-center mb-12 md:mb-16'>
-          <h2 className='text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4'>
+        <div className='text-center mb-10 md:mb-12'>
+          <h2 className='text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-3'>
             Get In <span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500'>Touch</span>
           </h2>
-          <p className='text-gray-400 text-base sm:text-lg md:text-xl max-w-3xl mx-auto font-normal'>
+          <p className='text-gray-400 text-xs sm:text-sm md:text-base max-w-xl mx-auto font-normal'>
             Have a project in mind or want to collaborate? Feel free to reach out anytime!
           </p>
         </div>
 
         {/* Form and Info Layout */}
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto items-start'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto items-start'>
           {/* Contact Form */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className='glass-card rounded-3xl p-8 md:p-10 border border-purple-500/20 shadow-xl'
+            className='glass-card rounded-3xl p-6 md:p-8 border border-purple-500/20 shadow-xl'
           >
-            <form ref={form} onSubmit={sendEmail} className='space-y-6'>
+            <form ref={form} onSubmit={sendEmail} className='space-y-4 font-normal'>
               <div>
-                <label className='block text-gray-200 text-lg font-medium mb-2'>Your Name</label>
+                <label className='block text-gray-200 text-sm sm:text-base font-medium mb-1.5'>Your Name</label>
                 <input
                   type="text"
                   name="from_name"
                   required
                   placeholder="Enter your name"
-                  className='w-full bg-[#1a1a24] border border-purple-500/20 focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-purple-500/30 text-white text-lg px-5 py-4 rounded-xl transition duration-300'
+                  className='w-full bg-[#1a1a24] border border-purple-500/20 focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-purple-500/30 text-white text-sm md:text-base px-4 py-3 rounded-xl transition duration-300'
                 />
               </div>
 
               <div>
-                <label className='block text-gray-200 text-lg font-medium mb-2'>Email Address</label>
+                <label className='block text-gray-200 text-sm sm:text-base font-medium mb-1.5'>Email Address</label>
                 <input
                   type="email"
                   name="from_email"
                   required
                   placeholder="Enter your email"
-                  className='w-full bg-[#1a1a24] border border-purple-500/20 focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-purple-500/30 text-white text-lg px-5 py-4 rounded-xl transition duration-300'
+                  className='w-full bg-[#1a1a24] border border-purple-500/20 focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-purple-500/30 text-white text-sm md:text-base px-4 py-3 rounded-xl transition duration-300'
                 />
               </div>
 
               <div>
-                <label className='block text-gray-200 text-lg font-medium mb-2'>Your Message</label>
+                <label className='block text-gray-200 text-sm sm:text-base font-medium mb-1.5'>Your Message</label>
                 <textarea
                   name="message"
                   required
-                  rows="5"
+                  rows="4"
                   placeholder="Write your message here..."
-                  className='w-full bg-[#1a1a24] border border-purple-500/20 focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-purple-500/30 text-white text-lg px-5 py-4 rounded-xl transition duration-300 resize-none'
+                  className='w-full bg-[#1a1a24] border border-purple-500/20 focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-purple-500/30 text-white text-sm md:text-base px-4 py-3 rounded-xl transition duration-300 resize-none'
                 ></textarea>
               </div>
 
               <button 
                 type='submit' 
-                className='w-full py-4 px-8 rounded-xl font-bold text-lg md:text-xl text-white
+                className='w-full py-3 px-6 rounded-xl font-semibold text-sm md:text-base text-white
                 bg-gradient-to-r from-purple-600 via-purple-700 to-pink-600
                 hover:from-purple-500 hover:to-pink-500
-                shadow-lg shadow-purple-600/30 hover:shadow-purple-500/50
+                shadow-md shadow-purple-600/30 hover:shadow-purple-500/50
                 hover:scale-[1.02] active:scale-95
-                transition-all duration-300 cursor-pointer'
+                transition-all duration-300 cursor-pointer mt-2'
               >
                 Send Message
               </button>
@@ -108,38 +108,38 @@ const Content = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className='space-y-8 lg:pl-6'
+            className='space-y-6 lg:pl-4'
           >
-            <div className='glass-card rounded-3xl p-8 md:p-10 border border-purple-500/20 shadow-xl space-y-8'>
-              <div className='flex items-center gap-5'>
-                <div className='p-4 rounded-2xl bg-purple-500/15 border border-purple-500/30 text-purple-400 text-2xl md:text-3xl shrink-0'>
+            <div className='glass-card rounded-3xl p-6 md:p-8 border border-purple-500/20 shadow-xl space-y-6'>
+              <div className='flex items-center gap-4'>
+                <div className='p-3 rounded-xl bg-purple-500/15 border border-purple-500/30 text-purple-400 text-xl md:text-2xl shrink-0'>
                   <FaMapMarkerAlt />
                 </div>
                 <div>
-                  <h3 className='text-xl md:text-2xl font-bold text-white mb-1'>Location</h3>
-                  <p className='text-gray-300 text-lg md:text-xl'>Kochi, Kerala, India – 682006</p>
+                  <h3 className='text-base md:text-lg font-bold text-white mb-0.5'>Location</h3>
+                  <p className='text-gray-300 text-sm md:text-base'>Kochi, Kerala, India – 682006</p>
                 </div>
               </div>
 
-              <div className='flex items-center gap-5'>
-                <div className='p-4 rounded-2xl bg-purple-500/15 border border-purple-500/30 text-purple-400 text-2xl md:text-3xl shrink-0'>
+              <div className='flex items-center gap-4'>
+                <div className='p-3 rounded-xl bg-purple-500/15 border border-purple-500/30 text-purple-400 text-xl md:text-2xl shrink-0'>
                   <FaEnvelope />
                 </div>
                 <div>
-                  <h3 className='text-xl md:text-2xl font-bold text-white mb-1'>Email</h3>
-                  <a href="mailto:vargheseneema053@gmail.com" className='text-gray-300 hover:text-purple-300 text-lg md:text-xl transition duration-300'>
+                  <h3 className='text-base md:text-lg font-bold text-white mb-0.5'>Email</h3>
+                  <a href="mailto:vargheseneema053@gmail.com" className='text-gray-300 hover:text-purple-300 text-sm md:text-base transition duration-300'>
                     vargheseneema053@gmail.com
                   </a>
                 </div>
               </div>
 
-              <div className='flex items-center gap-5'>
-                <div className='p-4 rounded-2xl bg-purple-500/15 border border-purple-500/30 text-purple-400 text-2xl md:text-3xl shrink-0'>
+              <div className='flex items-center gap-4'>
+                <div className='p-3 rounded-xl bg-purple-500/15 border border-purple-500/30 text-purple-400 text-xl md:text-2xl shrink-0'>
                   <FaPhone />
                 </div>
                 <div>
-                  <h3 className='text-xl md:text-2xl font-bold text-white mb-1'>Phone</h3>
-                  <a href="tel:+919037194895" className='text-gray-300 hover:text-purple-300 text-lg md:text-xl transition duration-300'>
+                  <h3 className='text-base md:text-lg font-bold text-white mb-0.5'>Phone</h3>
+                  <a href="tel:+919037194895" className='text-gray-300 hover:text-purple-300 text-sm md:text-base transition duration-300'>
                     +91 9037194895
                   </a>
                 </div>
@@ -147,15 +147,15 @@ const Content = () => {
             </div>
 
             {/* Social Media Links */}
-            <div className='glass-card rounded-3xl p-8 border border-purple-500/20 shadow-xl'>
-              <h3 className='text-xl md:text-2xl font-bold text-white mb-6'>Follow & Connect</h3>
-              <div className='flex flex-wrap gap-4'>
+            <div className='glass-card rounded-3xl p-6 border border-purple-500/20 shadow-xl'>
+              <h3 className='text-base md:text-lg font-bold text-white mb-4'>Follow & Connect</h3>
+              <div className='flex flex-wrap gap-3.5'>
                 <a 
                   href="https://github.com/neemavarghese0098008"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub Profile"
-                  className='w-14 h-14 rounded-2xl bg-[#1a1a24] border border-purple-500/30 flex items-center justify-center text-white text-2xl hover:bg-purple-600 hover:border-purple-400 hover:scale-110 transition-all duration-300 shadow-md'
+                  className='w-11 h-11 rounded-xl bg-[#1a1a24] border border-purple-500/30 flex items-center justify-center text-white text-xl hover:bg-purple-600 hover:border-purple-400 hover:scale-110 transition-all duration-300 shadow-md'
                 >
                   <FaGithub />
                 </a>
@@ -165,7 +165,7 @@ const Content = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn Profile"
-                  className='w-14 h-14 rounded-2xl bg-[#1a1a24] border border-purple-500/30 flex items-center justify-center text-white text-2xl hover:bg-blue-600 hover:border-blue-400 hover:scale-110 transition-all duration-300 shadow-md'
+                  className='w-11 h-11 rounded-xl bg-[#1a1a24] border border-purple-500/30 flex items-center justify-center text-white text-xl hover:bg-blue-600 hover:border-blue-400 hover:scale-110 transition-all duration-300 shadow-md'
                 >
                   <FaLinkedin />
                 </a>
@@ -175,7 +175,7 @@ const Content = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="WhatsApp"
-                  className='w-14 h-14 rounded-2xl bg-[#1a1a24] border border-purple-500/30 flex items-center justify-center text-white text-2xl hover:bg-emerald-600 hover:border-emerald-400 hover:scale-110 transition-all duration-300 shadow-md'
+                  className='w-11 h-11 rounded-xl bg-[#1a1a24] border border-purple-500/30 flex items-center justify-center text-white text-xl hover:bg-emerald-600 hover:border-emerald-400 hover:scale-110 transition-all duration-300 shadow-md'
                 >
                   <FaWhatsapp />
                 </a>
@@ -185,7 +185,7 @@ const Content = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram Profile"
-                  className='w-14 h-14 rounded-2xl bg-[#1a1a24] border border-purple-500/30 flex items-center justify-center text-white text-2xl hover:bg-pink-600 hover:border-pink-400 hover:scale-110 transition-all duration-300 shadow-md'
+                  className='w-11 h-11 rounded-xl bg-[#1a1a24] border border-purple-500/30 flex items-center justify-center text-white text-xl hover:bg-pink-600 hover:border-pink-400 hover:scale-110 transition-all duration-300 shadow-md'
                 >
                   <FaInstagram />
                 </a>
